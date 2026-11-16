@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Assault - Shoot 'em Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Canvas do Jogo -->
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <!-- HUD (Interface durante o jogo) -->
+        <div id="hud" class="hidden">
+            <div class="hud-left">
+                <div class="hud-item">Pontos: <span id="score">0</span></div>
+                <div class="hud-item">Recorde: <span id="highscore">0</span></div>
+            </div>
+            <div class="hud-center">
+                <div class="hud-item">Fase: <span id="stage">1</span>/5</div>
+            </div>
+            <div class="hud-right">
+                <div class="hud-item">Vidas: <span id="lives">3</span></div>
+                <div class="hud-item energy-bar-container">
+                    Energia: 
+                    <div class="energy-bar"><div id="energy-fill"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Principal -->
+        <div id="main-menu" class="screen">
+            <h1 class="game-title">GALACTIC ASSAULT</h1>
+            <p class="game-subtitle">Defenda a galáxia das forças invasoras</p>
+            <div class="menu-buttons">
+                <button id="start-btn" class="btn">Iniciar Jogo</button>
+                <button id="instructions-btn" class="btn">Instruções</button>
+                <button id="settings-btn" class="btn">Configurações</button>
+            </div>
+        </div>
+
+        <!-- Tela de Instruções -->
+        <div id="instructions-screen" class="screen hidden">
+            <h2>Instruções de Combate</h2>
+            <div class="instructions-content">
+                <p><strong>WASD / Setas:</strong> Movimentar a nave</p>
+                <p><strong>Espaço:</strong> Disparar lasers</p>
+                <p><strong>Shift:</strong> Movimentação de precisão (Lenta)</p>
+                <p><strong>X:</strong> Ativar Habilidade Especial / Bomba</p>
+                <p><strong>ESC:</strong> Pausar o jogo</p>
+                <p>Colete Power-ups deixados por inimigos destruídos para melhorar seu armamento!</p>
+            </div>
+            <button id="back-to-menu-1" class="btn">Voltar</button>
+        </div>
+
+        <!-- Tela de Configurações -->
+        <div id="settings-screen" class="screen hidden">
+            <h2>Configurações de Áudio</h2>
+            <div class="settings-content">
+                <label for="volume-slider">Volume Master:</label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+                <button id="toggle-audio" class="btn toggle-on">Áudio: Atativado</button>
+            </div>
+            <button id="back-to-menu-2" class="btn">Voltar</button>
+        </div>
+
+        <!-- Tela de Pausa -->
+        <div id="pause-screen" class="screen hidden">
+            <h2>Jogo Pausado</h2>
+            <div class="menu-buttons">
+                <button id="resume-btn" class="btn">Continuar</button>
+                <button id="restart-btn" class="btn">Reiniciar</button>
+                <button id="quit-btn" class="btn">Menu Principal</button>
+            </div>
+        </div>
+
+        <!-- Tela de Game Over -->
+        <div id="gameover-screen" class="screen hidden">
+            <h2 class="game-over-title">Game Over</h2>
+            <p>Sua pontuação final: <span id="final-score">0</span></p>
+            <button id="restart-gameover-btn" class="btn">Jogar Novamente</button>
+            <button id="menu-gameover-btn" class="btn">Menu Principal</button>
+        </div>
+
+        <!-- Tela de Vitória -->
+        <div id="victory-screen" class="screen hidden">
+            <h2 class="victory-title">Vitória Galáctica!</h2>
+            <p>Você salvou a galáxia dos invasores!</p>
+            <p>Pontuação Final: <span id="victory-score">0</span></p>
+            <button id="restart-victory-btn" class="btn">Jogar Novamente</button>
+            <button id="menu-victory-btn" class="btn">Menu Principal</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
